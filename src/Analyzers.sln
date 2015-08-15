@@ -81,11 +81,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System.Security.Cryptograph
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemSecurityCryptographyHashingAlgorithmsAnalyzers", "FxCop\System.Security.Cryptography.Hashing.Algorithms.Analyzers\Core\SystemSecurityCryptographyHashingAlgorithmsAnalyzers.csproj", "{DAA5B1A4-9C03-4F0E-AC61-AAD0F96457F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpSystemSecurityCryptographyHashingAlgorithms", "FxCop\System.Security.Cryptography.Hashing.Algorithms.Analyzers\CSharp\CSharpSystemSecurityCryptographyHashingAlgorithms.csproj", "{9C86C9DB-6A03-487A-8A38-9D09DB7DFDFB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpSystemSecurityCryptographyHashingAlgorithmsAnalyzers", "FxCop\System.Security.Cryptography.Hashing.Algorithms.Analyzers\CSharp\CSharpSystemSecurityCryptographyHashingAlgorithmsAnalyzers.csproj", "{9C86C9DB-6A03-487A-8A38-9D09DB7DFDFB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemSecurityCryptographyHashingAlgorithmsAnalyzersTest", "FxCop\System.Security.Cryptography.Hashing.Algorithms.Analyzers\Test\SystemSecurityCryptographyHashingAlgorithmsAnalyzersTest.csproj", "{811DBEC8-EC7E-43E9-ACAD-A59FF524B79E}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BasicSystemSecurityCryptographyHashingAlgorithmsAnalyzers", "FxCop\System.Security.Cryptography.Hashing.Algorithms.Analyzers\VisualBasic\BasicSystemSecurityCryptographyHashingAlgorithmsAnalyzers.vbproj", "{857233D3-88FC-4CE5-9913-0456929A1B6E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System.Globalization.Analyzers", "System.Globalization.Analyzers", "{26F18EFF-045A-416E-940E-ED13A585426C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SystemGlobalizationAnalyzers", "FxCop\System.Globalization.Analyzers\Core\SystemGlobalizationAnalyzers.csproj", "{861D8200-54E0-447D-BC44-A2D30CB7CF29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpSystemGlobalizationAnalyzers", "FxCop\System.Globalization.Analyzers\CSharp\CSharpSystemGlobalizationAnalyzers.csproj", "{A5481CBC-AAFB-43F3-945C-16EA3B036F75}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "BasicSystemGlobalizationAnalyzers", "FxCop\System.Globalization.Analyzers\VisualBasic\BasicSystemGlobalizationAnalyzers.vbproj", "{737A7CC5-D0F3-4F50-8E9D-E91ED0B02EDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -221,6 +229,18 @@ Global
 		{857233D3-88FC-4CE5-9913-0456929A1B6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{857233D3-88FC-4CE5-9913-0456929A1B6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{857233D3-88FC-4CE5-9913-0456929A1B6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{861D8200-54E0-447D-BC44-A2D30CB7CF29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{861D8200-54E0-447D-BC44-A2D30CB7CF29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{861D8200-54E0-447D-BC44-A2D30CB7CF29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{861D8200-54E0-447D-BC44-A2D30CB7CF29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5481CBC-AAFB-43F3-945C-16EA3B036F75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5481CBC-AAFB-43F3-945C-16EA3B036F75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5481CBC-AAFB-43F3-945C-16EA3B036F75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5481CBC-AAFB-43F3-945C-16EA3B036F75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{737A7CC5-D0F3-4F50-8E9D-E91ED0B02EDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{737A7CC5-D0F3-4F50-8E9D-E91ED0B02EDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{737A7CC5-D0F3-4F50-8E9D-E91ED0B02EDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{737A7CC5-D0F3-4F50-8E9D-E91ED0B02EDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -262,5 +282,9 @@ Global
 		{9C86C9DB-6A03-487A-8A38-9D09DB7DFDFB} = {B7CA990F-539D-4A73-908E-1F55A1320BB9}
 		{811DBEC8-EC7E-43E9-ACAD-A59FF524B79E} = {B7CA990F-539D-4A73-908E-1F55A1320BB9}
 		{857233D3-88FC-4CE5-9913-0456929A1B6E} = {B7CA990F-539D-4A73-908E-1F55A1320BB9}
+		{26F18EFF-045A-416E-940E-ED13A585426C} = {4103D989-D9A3-4317-A328-99360C5AE09C}
+		{861D8200-54E0-447D-BC44-A2D30CB7CF29} = {26F18EFF-045A-416E-940E-ED13A585426C}
+		{A5481CBC-AAFB-43F3-945C-16EA3B036F75} = {26F18EFF-045A-416E-940E-ED13A585426C}
+		{737A7CC5-D0F3-4F50-8E9D-E91ED0B02EDD} = {26F18EFF-045A-416E-940E-ED13A585426C}
 	EndGlobalSection
 EndGlobal
