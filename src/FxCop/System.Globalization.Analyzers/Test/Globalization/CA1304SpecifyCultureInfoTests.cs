@@ -5,25 +5,13 @@ using Microsoft.CodeAnalysis.UnitTests;
 using Xunit;   
 
 namespace System.Globalization.Analyzers.UnitTests
-{
-    [TestClass]
-    public sealed class CA1304SpecifyCultureInfoTests : DiagnosticVerifier
+{               
+    public sealed class CA1304SpecifyCultureInfoTests : DiagnosticAnalyzerTestBase
     {
-        protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
-        {
-            return new CSharpCA1304DiagnosticAnalyzer();
-        }
-
-        protected override DiagnosticAnalyzer GetBasicDiagnosticAnalyzer()
-        {
-            return new VisualBasicCA1304DiagnosticAnalyzer();
-        }
-
-        [TestMethod]
-        [TestCategory(TestCategories.Gated)]
+        [Fact]
         public void CA1304ShoudUseOverloadsWithExplicitCultureInfoParameterTests_String_CS()
         {
-            string source = @"
+            VerifyCSharp(@"
 using System;
 using System.Globalization;
 
@@ -42,328 +30,15 @@ sealed class C
             Console.WriteLine(""Oops"");
         }
     }
-}";
-
-            DiagnosticResult[] expected = {
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 9, 25)}
-                },
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 10, 25)}
-                }
-            };
-
-            VerifyCSharpDiagnostic(source, expected);
-        }
-
-        [TestMethod]
-        [TestCategory(TestCategories.Gated)]
-        public void CA1304NoCultureInfoWithListCollectionInitializerShouldGenerateDiagnostic()
-        {
-            string source = @"
-using System.Collections.Generic;
-
-sealed class C
-{
-    void TestMethod(string strA, string strB)
-    {
-        List<string> strAld = new List<string>() { strA.ToLower() };
-        List<string> strBud = new List<string>() { strB.ToUpper() };
-    }
-}";
-
-            DiagnosticResult[] expected = {
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 8, 52)}
-                },
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 9, 52)}
-                }
-            };
-
-            VerifyCSharpDiagnostic(source, expected);
-        }
-
-        [TestMethod]
-        [TestCategory(TestCategories.Gated)]
-        public void CA1304NoCultureInfoWithArrayCollectionInitializerShouldGenerateDiagnostic()
-        {
-            string source = @"
-using System.Collections.Generic;
-
-sealed class C
-{
-    void TestMethod(string strA, string strB)
-    {
-        string[] strAld = new string[] { strA.ToLower() };
-        string[] strBud = new string[] { strB.ToUpper() };
-    }
-}";
-
-            DiagnosticResult[] expected = {
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 8, 42)}
-                },
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 9, 42)}
-                }
-            };
-
-            VerifyCSharpDiagnostic(source, expected);
-        }
-
-        [TestMethod]
-        [TestCategory(TestCategories.Gated)]
-        public void CA1304NoCultureInfoWithDictionaryCollectionInitializerShouldGenerateDiagnostic()
-        {
-            string source = @"
-using System.Collections.Generic;
-
-sealed class C
-{
-    void TestMethod(string strA, string strB)
-    {
-        Dictionary<int, string> strAld = new Dictionary<int, string> { { 1, strA.ToLower() } };
-        Dictionary<int, string> strBud = new Dictionary<int, string> { { 1, strA.ToUpper() } };
-    }
-}";
-
-            DiagnosticResult[] expected = {
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 8, 77)}
-                },
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 9, 77)}
-                }
-            };
-
-            VerifyCSharpDiagnostic(source, expected);
-        }
-
-        [TestMethod]
-        [TestCategory(TestCategories.Gated)]
-        public void CA1304NoCultureInfoInTryBlockShouldGenerateDiagnostic()
-        {
-            string source = @"
-using System;
-
-sealed class C
-{
-    void TestMethod(string strA, string strB)
-    {
-        try
-        {
-            string strAld = strA.ToLower();
-            string strBud = strB.ToUpper();
-        }
-        catch (Exception) { throw; }
-        finally { }
-    }
-}";
-
-            DiagnosticResult[] expected = {
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 10, 29)}
-                },
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 11, 29)}
-                }
-            };
-
-            VerifyCSharpDiagnostic(source, expected);
-        }
-
-        [TestMethod]
-        [TestCategory(TestCategories.Gated)]
-        public void CA1304NoCultureInfoInCatchBlockShouldGenerateDiagnostic()
-        {
-            string source = @"
-using System;
-
-sealed class C
-{
-    void TestMethod(string strA, string strB)
-    {
-        try { }
-        catch (Exception) 
-        { 
-            string strAld = strA.ToLower();
-            string strBud = strB.ToUpper();
-        }
-        finally { }
-    }
-}";
-
-            DiagnosticResult[] expected = {
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 11, 29)}
-                },
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 12, 29)}
-                }
-            };
-
-            VerifyCSharpDiagnostic(source, expected);
-        }
-
-        [TestMethod]
-        [TestCategory(TestCategories.Gated)]
-        public void CA1304NoCultureInfoInFinallyBlockShouldGenerateDiagnostic()
-        {
-            string source = @"
-using System;
-
-sealed class C
-{
-    void TestMethod(string strA, string strB)
-    {
-        try { }
-        catch (Exception) { }
-        finally 
-        {
-            string strAld = strA.ToLower();
-            string strBud = strB.ToUpper(); 
-        }
-    }
-}";
-
-            DiagnosticResult[] expected = {
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 12, 29)}
-                },
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 13, 29)}
-                }
-            };
-
-            VerifyCSharpDiagnostic(source, expected);
-        }
-
-        [TestMethod]
-        [TestCategory(TestCategories.Gated)]
-        public void CA1304NoCultureInfoAsyncWaitShouldGenerateDiagnostic()
-        {
-            string source = @"
-using System.Threading.Tasks;
-
-class TestClass
-{
-    private async Task TestMethod(string strA, string strB)
-    {
-        await Task.Run(() =>
-        {
-            string strAld = strA.ToLower();
-            string strBud = strB.ToUpper();
-        });
-    }
-
-    private async void TestMethod2()
-    {
-        await TestMethod(""test1"", ""test2"");
-    }
-}";
-
-            DiagnosticResult[] expected = {
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 10, 29)}
-                },
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 11, 29)}
-                }
-            };
-
-            VerifyCSharpDiagnostic(source, expected);
-        }
-
-        [TestMethod]
-        [TestCategory(TestCategories.Gated)]
-        public void CA1304NoCultureInfoDelegateShouldGenerateDiagnostic()
-        {
-            string source = @"
-using System.Security.Cryptography;
-
-class TestClass
-{
-    delegate void Del(string strA, string strB);
-
-    Del d = delegate (string strA, string strB)
-    {
-        string strAld = strA.ToLower();
-        string strBud = strB.ToUpper();
-    };
-}";
-
-            DiagnosticResult[] expected = {
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 10, 25)}
-                },
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 11, 25)}
-                }
-            };
-
-            VerifyCSharpDiagnostic(source, expected);
-        }
-
-        [TestMethod]
-        [TestCategory(TestCategories.Gated)]
+}",
+            GetCA1304CSharpDefaultResultAt(9, 25, callee: "string.ToLower()", caller: "C.M(string, string)", preferred: "string.ToLower(System.Globalization.CultureInfo)"),
+            GetCA1304CSharpDefaultResultAt(10, 25, callee: "string.ToUpper()", caller: "C.M(string, string)", preferred: "string.ToUpper(System.Globalization.CultureInfo)"));
+        } 
+        
+        [Fact]
         public void CA1304ShoudUseOverloadsWithExplicitCultureInfoParameterTests_Misc_CS()
         {
-            string source = @"
+            VerifyCSharp(@"
 using System;
 using System.ComponentModel;
 using System.Globalization;
@@ -443,31 +118,19 @@ static class C
             Console.WriteLine(string.Format(provider, format, content));
         }
     }
-}";
-
-            DiagnosticResult[] expected = {
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 12, 9)}
-                },
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 13, 9)}
-                }
-            };
-
-            VerifyCSharpDiagnostic(source, expected);
-        }
-
-        [TestMethod]
-        [TestCategory(TestCategories.Gated)]
+}",
+            GetCA1304CSharpDefaultResultAt(12, 9, callee: "C.CultureInfoOverloads.M1(string, string)", 
+                                                  caller: "C.T(string, string)", 
+                                                  preferred: "C.CultureInfoOverloads.M1(string, string, System.Globalization.CultureInfo)"),
+            GetCA1304CSharpDefaultResultAt(13, 9, callee: "C.CultureInfoOverloads.M2(string, string)", 
+                                                  caller: "C.T(string, string)", 
+                                                  preferred: "C.CultureInfoOverloads.M2(System.Globalization.CultureInfo, string, string)"));
+        } 
+        
+        [Fact]
         public void CA1304ShoudUseOverloadsWithExplicitCultureInfoParameterTests_String_VB()
         {
-            string source = @"
+            VerifyBasic(@"
 Imports System
 Imports System.Globalization
 
@@ -483,31 +146,19 @@ Public Module C
             Console.WriteLine(""Oops"")
         End If
     End Sub
-End Module";
-
-            DiagnosticResult[] expected = {
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 7, 32)}
-                },
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 8, 32)}
-                }
-            };
-
-            VerifyBasicDiagnostic(source, expected);
+End Module",
+            GetCA1304BasicDefaultResultAt(7, 32, callee: "Public Overloads Function ToLower() As String",
+                                                 caller: "Public Sub M(strA As String, strB As String)",
+                                                 preferred: "Public Overloads Function ToLower(culture As System.Globalization.CultureInfo) As String"),
+            GetCA1304BasicDefaultResultAt(8, 32, callee: "Public Overloads Function ToUpper() As String",
+                                                 caller: "Public Sub M(strA As String, strB As String)",
+                                                 preferred: "Public Overloads Function ToUpper(culture As System.Globalization.CultureInfo) As String"));
         }
-
-        [TestMethod]
-        [TestCategory(TestCategories.Gated)]
+        
+        [Fact]
         public void CA1304ShoudUseOverloadsWithExplicitCultureInfoParameterTests_Misc_VB()
         {
-            string source = @"
+            VerifyBasic(@"
 Imports System
 Imports System.ComponentModel
 Imports System.Globalization
@@ -577,24 +228,47 @@ Friend Module CultureInfoOverloads
     Private Sub M3(format As String, provider As CultureInfo, content As String)
         Console.WriteLine(String.Format(provider, format, content))
     End Sub
-End Module";
+End Module",
+            GetCA1304BasicDefaultResultAt(10, 9, callee: "Friend Sub M1(format As String, content As String)", 
+                                                 caller: "Public Sub M(f As String, s As String)", 
+                                                 preferred: "Friend Sub M1(format As String, content As String, provider As System.Globalization.CultureInfo)"),
+            GetCA1304BasicDefaultResultAt(11, 9, callee: "Friend Sub M2(format As String, content As String)", 
+                                                 caller: "Public Sub M(f As String, s As String)", 
+                                                 preferred: "Friend Sub M2(provider As System.Globalization.CultureInfo, format As String, content As String)")); 
+        }
 
-            DiagnosticResult[] expected = {
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 10, 9)}
-                },
-                new DiagnosticResult
-                {
-                    Id = CA1304DiagnosticAnalyzer.RuleId1304,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1304Severity,
-                    Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 11, 9)}
-                }
-            };
+        protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
+        {
+            return new CSharpCA1304DiagnosticAnalyzer();
+        }
 
-            VerifyBasicDiagnostic(source, expected);
+        protected override DiagnosticAnalyzer GetBasicDiagnosticAnalyzer()
+        {
+            return new VisualBasicCA1304DiagnosticAnalyzer();
+        }
+
+        internal static string CA1304Name = CA1304DiagnosticAnalyzer.RuleId1304;
+
+        private static DiagnosticResult GetCA1304CSharpDefaultResultAt(int line, int column, string callee, string caller, string preferred)
+        {
+            // Because the behavior of '{0}' could vary based on the current user's locale settings, 
+            // replace this call in '{1}' with a call to '{2}'. If the result of '{2}' will be displayed 
+            // to the user, specify 'CultureInfo.CurrentCulture' as the 'CultureInfo' parameter. Otherwise, 
+            // if the result will be stored and accessed by software, such as when it is persisted to disk or 
+            // to a database, specify 'CultureInfo.InvariantCulture'.
+            var message = string.Format(SystemGlobalizationAnalyzersResources.SpecifyCultureInfoDiagnosis, callee, caller, preferred);
+            return GetCSharpResultAt(line, column, CA1304Name, message);
+        }
+
+        private static DiagnosticResult GetCA1304BasicDefaultResultAt(int line, int column, string callee, string caller, string preferred)
+        {
+            // Because the behavior of '{0}' could vary based on the current user's locale settings, 
+            // replace this call in '{1}' with a call to '{2}'. If the result of '{2}' will be displayed 
+            // to the user, specify 'CultureInfo.CurrentCulture' as the 'CultureInfo' parameter. Otherwise, 
+            // if the result will be stored and accessed by software, such as when it is persisted to disk or 
+            // to a database, specify 'CultureInfo.InvariantCulture'.
+            var message = string.Format(SystemGlobalizationAnalyzersResources.SpecifyCultureInfoDiagnosis, callee, caller, preferred);
+            return GetBasicResultAt(line, column, CA1304Name, message);
         }
     }
 }

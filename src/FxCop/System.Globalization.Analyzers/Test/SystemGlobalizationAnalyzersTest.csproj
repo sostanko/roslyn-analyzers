@@ -152,9 +152,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Globalization\CA1304SpecifyCultureInfoTests.cs" />
-    <Compile Include="Globalization\CA1305SpecifyIFormatProviderTests.cs" />
+    <!--Compile Include="Globalization\CA1305SpecifyIFormatProviderTests.cs" />
     <Compile Include="Globalization\CA1307SpecifyStringComparisonTests.cs" />
-    <Compile Include="Globalization\CA1309UseOrdinalStringComparisonTests.cs" />
+    <Compile Include="Globalization\CA1309UseOrdinalStringComparisonTests.cs" /-->
   </ItemGroup>
   <ImportGroup Label="Targets">
     <Import Project="..\..\..\..\build\Targets\Analyzers.Imports.targets" />
