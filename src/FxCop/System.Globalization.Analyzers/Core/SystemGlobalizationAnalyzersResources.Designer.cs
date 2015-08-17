@@ -98,7 +98,7 @@ namespace System.Globalization.Analyzers {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Because the behavior of {0} could vary based on the current user&apos;s locale settings, replace this call in &apos;{1}&apos; with a call to &apos;{2}&apos;. If the result of &apos;{2}&apos; will be based on input from the user, specify &apos;CultureInfo.CurrentCulture&apos; as the &apos;IFormatProvider&apos; parameter. Otherwise, if the result will based on input stored and accessed by software, such as when it is loaded from disk or from a database, specify &apos;CultureInfo.InvariantCulture&apos;..
+        ///   Looks up a localized string similar to Because the behavior of &apos;{0}&apos; could vary based on the current user&apos;s locale settings, replace this call in &apos;{1}&apos; with a call to &apos;{2}&apos;. If the result of &apos;{2}&apos; will be based on input from the user, specify &apos;CultureInfo.CurrentCulture&apos; as the &apos;IFormatProvider&apos; parameter. Otherwise, if the result will based on input stored and accessed by software, such as when it is loaded from disk or from a database, specify &apos;CultureInfo.InvariantCulture&apos;..
         /// </summary>
         internal static string SpecifyIFormatProviderDiagnosisAlternate {
             get {
