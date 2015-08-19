@@ -891,5 +891,41 @@ End Module";
         {
             return new VisualBasicCA1304DiagnosticAnalyzer();
         }
+
+        internal static string CA1309Name = CA1304DiagnosticAnalyzer.RuleId1309;
+
+        private static DiagnosticResult GetCSharpUseOrdinalStringComparerResultAt(int line, int column, params string[] arguments)
+        {
+            var message = string.Format(SystemGlobalizationAnalyzersResources.UseOrdinalStringComparerDiagnosis, arguments);
+            return GetCSharpResultAt(line, column, CA1309Name, message);
+        }
+
+        private static DiagnosticResult GetBasicUseOrdinalStringComparerResultAt(int line, int column, params string[] arguments)
+        {
+            var message = string.Format(SystemGlobalizationAnalyzersResources.UseOrdinalStringComparerDiagnosis, arguments);
+            return GetCSharpResultAt(line, column, CA1309Name, message);
+        }
+        private static DiagnosticResult GetCSharpUseOrdinalStringComparisonDefaultResultAt(int line, int column, params string[] arguments)
+        {
+            var message = string.Format(SystemGlobalizationAnalyzersResources.UseOrdinalStringComparisonDefaultDiagnosis, arguments);
+            return GetCSharpResultAt(line, column, CA1309Name, message);
+        }
+
+        private static DiagnosticResult GetBasicUseOrdinalStringComparisonDefaultResultAt(int line, int column, params string[] arguments)
+        {
+            var message = string.Format(SystemGlobalizationAnalyzersResources.UseOrdinalStringComparisonDefaultDiagnosis, arguments);
+            return GetCSharpResultAt(line, column, CA1309Name, message);
+        }
+        private static DiagnosticResult GetCSharpUseOrdinalStringComparisonResultAt(int line, int column, params string[] arguments)
+        {
+            var message = string.Format(SystemGlobalizationAnalyzersResources.UseOrdinalStringComparisonDiagnosis, arguments);
+            return GetCSharpResultAt(line, column, CA1309Name, message);
+        }
+
+        private static DiagnosticResult GetBasicUseOrdinalStringComparisonResultAt(int line, int column, params string[] arguments)
+        {
+            var message = string.Format(SystemGlobalizationAnalyzersResources.UseOrdinalStringComparisonDiagnosis, arguments);
+            return GetCSharpResultAt(line, column, CA1309Name, message);
+        }
     }
-}
+}                              
