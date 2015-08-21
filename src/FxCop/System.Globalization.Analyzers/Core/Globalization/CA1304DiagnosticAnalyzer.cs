@@ -15,103 +15,54 @@ namespace System.Globalization.Analyzers
         public const string RuleId1304 = "CA1304";
         public const string RuleId1305 = "CA1305";
         public const string RuleId1307 = "CA1307";
-        public const string RuleId1309 = "CA1309";
-        public const DiagnosticSeverity Rule1304Severity = DiagnosticSeverity.Warning;
-        public const DiagnosticSeverity Rule1305Severity = DiagnosticSeverity.Warning;
-        public const DiagnosticSeverity Rule1307Severity = DiagnosticSeverity.Warning;
-        public const DiagnosticSeverity Rule1309Severity = DiagnosticSeverity.Warning;
+        public const string RuleId1309 = "CA1309";          
 
-        internal static readonly DiagnosticDescriptor SpecifyCultureInfoRule =
-            new DiagnosticDescriptor(
-                RuleId1304,
-                SystemGlobalizationAnalyzersResources.SpecifyCultureInfoTitle,
-                SystemGlobalizationAnalyzersResources.SpecifyCultureInfoDiagnosis,
-                DiagnosticCategory.Globalization,
-                Rule1304Severity,
-                isEnabledByDefault: true,
-                description: SystemGlobalizationAnalyzersResources.SpecifyCultureInfoDescription);
+        internal static readonly DiagnosticDescriptor SpecifyCultureInfoRule = CreateDiagnosticDescriptor(RuleId1304,
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.SpecifyCultureInfoTitle),
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.SpecifyCultureInfoDiagnosis),
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.SpecifyCultureInfoDescription));
 
-        internal static readonly DiagnosticDescriptor SpecifyIFormatProviderAlternateStringRule =
-            new DiagnosticDescriptor(
-                RuleId1305,
-                SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderTitle,
-                SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderDiagnosisAlternateString,
-                DiagnosticCategory.Globalization,
-                Rule1305Severity,
-                isEnabledByDefault: true,
-                description: SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderDescription);
+        internal static readonly DiagnosticDescriptor SpecifyIFormatProviderAlternateStringRule = CreateDiagnosticDescriptor(RuleId1305,
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderTitle),
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderDiagnosisAlternateString),
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderDescription));
 
-        internal static readonly DiagnosticDescriptor SpecifyIFormatProviderAlternateRule =
-            new DiagnosticDescriptor(
-                RuleId1305,
-                SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderTitle,
-                SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderDiagnosisAlternate,
-                DiagnosticCategory.Globalization,
-                Rule1305Severity,
-                isEnabledByDefault: true,
-                description: SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderDescription);
+        internal static readonly DiagnosticDescriptor SpecifyIFormatProviderAlternateRule = CreateDiagnosticDescriptor(RuleId1305,
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderTitle),
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderDiagnosisAlternate),
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderDescription));
 
-        internal static readonly DiagnosticDescriptor SpecifyIFormatProviderUICultureStringRule =
-            new DiagnosticDescriptor(
-                RuleId1305,
-                SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderTitle,
-                SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderDiagnosisUICultureString,
-                DiagnosticCategory.Globalization,
-                Rule1305Severity,
-                isEnabledByDefault: true,
-                description: SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderDescription);
+        internal static readonly DiagnosticDescriptor SpecifyIFormatProviderUICultureStringRule = CreateDiagnosticDescriptor(RuleId1305,
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderTitle),
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderDiagnosisUICultureString),
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderDescription));
 
-        internal static readonly DiagnosticDescriptor SpecifyIFormatProviderUICultureRule =
-            new DiagnosticDescriptor(
-                RuleId1305,
-                SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderTitle,
-                SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderDiagnosisUICulture,
-                DiagnosticCategory.Globalization,
-                Rule1305Severity,
-                isEnabledByDefault: true,
-                description: SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderDescription);
+        internal static readonly DiagnosticDescriptor SpecifyIFormatProviderUICultureRule = CreateDiagnosticDescriptor(RuleId1305,
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderTitle),
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderDiagnosisUICulture),
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.SpecifyIFormatProviderDescription));
 
-        internal static readonly DiagnosticDescriptor SpecifyStringComparisonRule =
-            new DiagnosticDescriptor(
-                RuleId1307,
-                SystemGlobalizationAnalyzersResources.SpecifyStringComparisonTitle,
-                SystemGlobalizationAnalyzersResources.SpecifyStringComparisonDiagnosis,
-                DiagnosticCategory.Globalization,
-                Rule1307Severity,
-                isEnabledByDefault: true,
-                description: SystemGlobalizationAnalyzersResources.SpecifyStringComparisonDescription);
+        internal static readonly DiagnosticDescriptor SpecifyStringComparisonRule = CreateDiagnosticDescriptor(RuleId1307,
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.SpecifyStringComparisonTitle),
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.SpecifyStringComparisonDiagnosis),
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.SpecifyStringComparisonDescription));
 
-        internal static readonly DiagnosticDescriptor UseOrdinalStringComparisonRule =
-            new DiagnosticDescriptor(
-                RuleId1309,
-                SystemGlobalizationAnalyzersResources.UseOrdinalStringComparisonTitle,
-                SystemGlobalizationAnalyzersResources.UseOrdinalStringComparisonDiagnosis,
-                DiagnosticCategory.Globalization,
-                Rule1309Severity,
-                isEnabledByDefault: true,
-                description: SystemGlobalizationAnalyzersResources.UseOrdinalStringComparisonDescription);
+        internal static readonly DiagnosticDescriptor UseOrdinalStringComparisonRule = CreateDiagnosticDescriptor(RuleId1309,
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.UseOrdinalStringComparisonTitle),
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.UseOrdinalStringComparisonDiagnosis),
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.UseOrdinalStringComparisonDescription));
 
-        internal static readonly DiagnosticDescriptor UseOrdinalStringComparerRule =
-            new DiagnosticDescriptor(
-                RuleId1309,
-                SystemGlobalizationAnalyzersResources.UseOrdinalStringComparisonTitle,
-                SystemGlobalizationAnalyzersResources.UseOrdinalStringComparerDiagnosis,
-                DiagnosticCategory.Globalization,
-                Rule1309Severity,
-                isEnabledByDefault: true,
-                description: SystemGlobalizationAnalyzersResources.UseOrdinalStringComparisonDescription);
+        internal static readonly DiagnosticDescriptor UseOrdinalStringComparerRule = CreateDiagnosticDescriptor(RuleId1309,
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.UseOrdinalStringComparisonTitle),
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.UseOrdinalStringComparerDiagnosis),
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.UseOrdinalStringComparisonDescription));
 
-        internal static readonly DiagnosticDescriptor UseOrdinalStringComparisonAsDefaultRule =
-            new DiagnosticDescriptor(
-                RuleId1309,
-                SystemGlobalizationAnalyzersResources.UseOrdinalStringComparisonTitle,
-                SystemGlobalizationAnalyzersResources.UseOrdinalStringComparisonDefaultDiagnosis,
-                DiagnosticCategory.Globalization,
-                Rule1309Severity,
-                isEnabledByDefault: true,
-                description: SystemGlobalizationAnalyzersResources.UseOrdinalStringComparisonDescription);
+        internal static readonly DiagnosticDescriptor UseOrdinalStringComparisonAsDefaultRule = CreateDiagnosticDescriptor(RuleId1309,
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.UseOrdinalStringComparisonTitle),
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.UseOrdinalStringComparisonDefaultDiagnosis),
+                                                                                                            GetLocalizableResourceString(SystemGlobalizationAnalyzersResources.UseOrdinalStringComparisonDescription));
 
-        private static readonly ImmutableArray<DiagnosticDescriptor> supportedDiagnostics =
+        private static readonly ImmutableArray<DiagnosticDescriptor> s_supportedDiagnostics =
             ImmutableArray.Create(SpecifyCultureInfoRule,
                                   SpecifyIFormatProviderAlternateRule,
                                   SpecifyIFormatProviderAlternateStringRule,
@@ -121,17 +72,31 @@ namespace System.Globalization.Analyzers
                                   UseOrdinalStringComparerRule,
                                   UseOrdinalStringComparisonRule,
                                   UseOrdinalStringComparisonAsDefaultRule);
+
         public sealed override ImmutableArray<DiagnosticDescriptor> SupportedDiagnostics
-        {
-            get
-            {
-                return CA1304DiagnosticAnalyzer.supportedDiagnostics;
-            }
-        }
+            => s_supportedDiagnostics;   
 
         public sealed override void Initialize(AnalysisContext context)
         {
             context.RegisterCompilationStartAction(PrepareAnalyzer);
+        }
+
+        private static DiagnosticDescriptor CreateDiagnosticDescriptor(string ruleId, LocalizableString title, LocalizableString message, LocalizableString description, string uri = null)
+        {
+            return new DiagnosticDescriptor(ruleId,
+                                            title,
+                                            message,
+                                            DiagnosticCategory.Globalization,
+                                            DiagnosticSeverity.Warning,
+                                            isEnabledByDefault: true,
+                                            description: description,
+                                            helpLinkUri: uri,
+                                            customTags: WellKnownDiagnosticTags.Telemetry);
+        }
+
+        private static LocalizableResourceString GetLocalizableResourceString(string resourceString)
+        {
+            return new LocalizableResourceString(nameof(resourceString), SystemGlobalizationAnalyzersResources.ResourceManager, typeof(SystemGlobalizationAnalyzersResources));
         }
 
         protected abstract void PrepareAnalyzer(CompilationStartAnalysisContext context);

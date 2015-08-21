@@ -1,13 +1,15 @@
 ﻿// Copyright (c) Microsoft.  All Rights Reserved.  Licensed under the Apache License, Version 2.0.  See License.txt in the project root for license information.
 
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Diagnostics;
 using Microsoft.CodeAnalysis.UnitTests;
-using Xunit;   
+using Xunit;
 
 namespace System.Globalization.Analyzers.UnitTests
 {                              
     public sealed class CA1309UseOrdinalStringComparisonTests : DiagnosticAnalyzerTestBase
-    {         
+    {
+#pragma warning disable CS0219
         [Fact(Skip = "TODO: Fix expected results")]
         public void CA1309ReviewUsesOfInvariantCultureTests_StringEquals_CS()
         {
@@ -61,49 +63,49 @@ sealed class C
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 10, 18)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 11, 18)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 12, 18)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 13, 18)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 14, 18)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 15, 18)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 36, 67)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 41, 67)}
                 }
             }; 
@@ -181,145 +183,145 @@ sealed class C // 5
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 10, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 11, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 12, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 13, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 14, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 15, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 16, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 17, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 18, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 19, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 20, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 21, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 22, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 23, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 24, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 25, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 26, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 27, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 28, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 29, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 30, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 31, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 32, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 33, 14)}
                 }
            };                                              
@@ -390,61 +392,61 @@ sealed class C
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 11, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 12, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 13, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 14, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 15, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 16, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 20, 13)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 21, 13)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 25, 13)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.cs", 26, 13)}
                 }
             };                                                           
@@ -497,49 +499,49 @@ End Class ' C";
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 8, 18)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 9, 18)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 10, 18)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 11, 18)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 12, 18)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 13, 18)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 31, 88)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 35, 88)}
                 }
             };                                               
@@ -616,145 +618,145 @@ End Class ' C";
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 8, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 9, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 10, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 11, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 12, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 13, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 14, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 15, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 16, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 17, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 18, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 19, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 20, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 22, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 23, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 24, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 25, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 26, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 27, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 28, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 29, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 30, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 31, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 32, 14)}
                 },
            };                                                
@@ -822,65 +824,66 @@ End Module";
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 9, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 10, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 11, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 12, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 13, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 14, 14)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 18, 13)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 19, 13)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 23, 13)}
                 },
                 new DiagnosticResult
                 {
                     Id = CA1304DiagnosticAnalyzer.RuleId1309,
-                    Severity = CA1304DiagnosticAnalyzer.Rule1309Severity,
+                    Severity = DiagnosticSeverity.Warning,
                     Locations = new[] { new DiagnosticResultLocation("SourceString0.vb", 24, 13)}
                 }
             };                                           
         }
+#pragma warning restore CS0219
 
         protected override DiagnosticAnalyzer GetCSharpDiagnosticAnalyzer()
         {
