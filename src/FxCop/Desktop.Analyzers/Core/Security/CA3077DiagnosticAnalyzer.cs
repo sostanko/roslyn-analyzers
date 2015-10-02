@@ -13,27 +13,27 @@ using System.Collections.Concurrent;
 
 namespace Desktop.Analyzers
 {
-    public abstract class CA9003DiagnosticAnalyzer : DiagnosticAnalyzer
+    public abstract class CA3077DiagnosticAnalyzer : DiagnosticAnalyzer
     {
-        internal const string RuleId = "CA9003";
+        internal const string RuleId = "CA3077";
 
-        internal static DiagnosticDescriptor RuleXmlDocumentDerivedClassDesignNoConstructor = CreateDiagnosticDescriptor(GetLocalizableResourceString(DesktopAnalyzersResources.XmlDocumentDerivedClassNoConstructorDiagnosis),
-                                                                                                                         GetLocalizableResourceString(DesktopAnalyzersResources.MakeDtdProcessingSecureInApiDesignXmlDocumentDescription));
+        internal static DiagnosticDescriptor RuleXmlDocumentDerivedClassDesignNoConstructor = CreateDiagnosticDescriptor(DiagnosticHelpers.GetLocalizableResourceString(nameof(DesktopAnalyzersResources.XmlDocumentDerivedClassNoConstructorDiagnosis)),
+                                                                                                                         DiagnosticHelpers.GetLocalizableResourceString(nameof(DesktopAnalyzersResources.MakeDtdProcessingSecureInApiDesignXmlDocumentDescription)));
 
-        internal static DiagnosticDescriptor RuleXmlDocumentDerivedClassDesignConstructorNoSecureXmlResolver = CreateDiagnosticDescriptor(GetLocalizableResourceString(DesktopAnalyzersResources.XmlDocumentDerivedClassConstructorNoSecureXmlResolverDiagnosis),
-                                                                                                                                          GetLocalizableResourceString(DesktopAnalyzersResources.MakeDtdProcessingSecureInApiDesignXmlDocumentDescription));
+        internal static DiagnosticDescriptor RuleXmlDocumentDerivedClassDesignConstructorNoSecureXmlResolver = CreateDiagnosticDescriptor(DiagnosticHelpers.GetLocalizableResourceString(nameof(DesktopAnalyzersResources.XmlDocumentDerivedClassConstructorNoSecureXmlResolverDiagnosis)),
+                                                                                                                                          DiagnosticHelpers.GetLocalizableResourceString(nameof(DesktopAnalyzersResources.MakeDtdProcessingSecureInApiDesignXmlDocumentDescription)));
 
-        internal static DiagnosticDescriptor RuleXmlDocumentDerivedClassDesignSetInsecureXmlResolverInMethod = CreateDiagnosticDescriptor(GetLocalizableResourceString(DesktopAnalyzersResources.XmlDocumentDerivedClassSetInsecureXmlResolverInMethodDiagnosis),
-                                                                                                                                          GetLocalizableResourceString(DesktopAnalyzersResources.MakeDtdProcessingSecureInApiDesignXmlDocumentDescription));
+        internal static DiagnosticDescriptor RuleXmlDocumentDerivedClassDesignSetInsecureXmlResolverInMethod = CreateDiagnosticDescriptor(DiagnosticHelpers.GetLocalizableResourceString(nameof(DesktopAnalyzersResources.XmlDocumentDerivedClassSetInsecureXmlResolverInMethodDiagnosis)),
+                                                                                                                                          DiagnosticHelpers.GetLocalizableResourceString(nameof(DesktopAnalyzersResources.MakeDtdProcessingSecureInApiDesignXmlDocumentDescription)));
 
-        internal static DiagnosticDescriptor RuleXmlTextReaderDerivedClassDesignNoConstructor = CreateDiagnosticDescriptor(GetLocalizableResourceString(DesktopAnalyzersResources.XmlTextReaderDerivedClassNoConstructorDiagnosis),
-                                                                                                                           GetLocalizableResourceString(DesktopAnalyzersResources.MakeDtdProcessingSecureInApiDesignXmlTextReaderDescription));
+        internal static DiagnosticDescriptor RuleXmlTextReaderDerivedClassDesignNoConstructor = CreateDiagnosticDescriptor(DiagnosticHelpers.GetLocalizableResourceString(nameof(DesktopAnalyzersResources.XmlTextReaderDerivedClassNoConstructorDiagnosis)),
+                                                                                                                           DiagnosticHelpers.GetLocalizableResourceString(nameof(DesktopAnalyzersResources.MakeDtdProcessingSecureInApiDesignXmlTextReaderDescription)));
 
-        internal static DiagnosticDescriptor RuleXmlTextReaderDerivedClassDesignConstructorNoSecureSettings = CreateDiagnosticDescriptor(GetLocalizableResourceString(DesktopAnalyzersResources.XmlTextReaderDerivedClassConstructorNoSecureSettingsDiagnosis),
-                                                                                                                                         GetLocalizableResourceString(DesktopAnalyzersResources.MakeDtdProcessingSecureInApiDesignXmlTextReaderDescription));
+        internal static DiagnosticDescriptor RuleXmlTextReaderDerivedClassDesignConstructorNoSecureSettings = CreateDiagnosticDescriptor(DiagnosticHelpers.GetLocalizableResourceString(nameof(DesktopAnalyzersResources.XmlTextReaderDerivedClassConstructorNoSecureSettingsDiagnosis)),
+                                                                                                                                         DiagnosticHelpers.GetLocalizableResourceString(nameof(DesktopAnalyzersResources.MakeDtdProcessingSecureInApiDesignXmlTextReaderDescription)));
 
-        internal static DiagnosticDescriptor RuleXmlTextReaderDerivedClassDesignSetInsecureSettingsInMethod = CreateDiagnosticDescriptor(GetLocalizableResourceString(DesktopAnalyzersResources.XmlTextReaderDerivedClassSetInsecureSettingsInMethodDiagnosis),
-                                                                                                                                         GetLocalizableResourceString(DesktopAnalyzersResources.MakeDtdProcessingSecureInApiDesignXmlTextReaderDescription));
+        internal static DiagnosticDescriptor RuleXmlTextReaderDerivedClassDesignSetInsecureSettingsInMethod = CreateDiagnosticDescriptor(DiagnosticHelpers.GetLocalizableResourceString(nameof(DesktopAnalyzersResources.XmlTextReaderDerivedClassSetInsecureSettingsInMethodDiagnosis)),
+                                                                                                                                         DiagnosticHelpers.GetLocalizableResourceString(nameof(DesktopAnalyzersResources.MakeDtdProcessingSecureInApiDesignXmlTextReaderDescription)));
   
         private static readonly ImmutableArray<DiagnosticDescriptor> supportedDiagnostics = ImmutableArray.Create(RuleXmlDocumentDerivedClassDesignNoConstructor,
                                                                                                                   RuleXmlDocumentDerivedClassDesignConstructorNoSecureXmlResolver,
@@ -46,7 +46,7 @@ namespace Desktop.Analyzers
         {
             get
             {
-                return CA9003DiagnosticAnalyzer.supportedDiagnostics;
+                return CA3077DiagnosticAnalyzer.supportedDiagnostics;
             }
         }
 
@@ -60,10 +60,15 @@ namespace Desktop.Analyzers
                     var xmlTypes = new CompilationSecurityTypes(compilation);
                     if (ReferencesAnyTargetType(xmlTypes))
                     {
-                        Version version = DiagnosticHelpers.GetFrameworkVersionFromCompilation(compilation);
+                        Version version = DiagnosticHelpers.GetDotNetFrameworkVersion(compilation);
 
-                        Analyzer analyzer = GetAnalyzer(context, xmlTypes, version);
-                        context.RegisterSymbolAction(analyzer.AnalyzeSymbol, SymbolKind.NamedType);
+                        // bail if we are not analyzing project targeting .NET Framework
+                        // TODO: should we throw an exception to notify user?
+                        if (version != null)
+                        {
+                            Analyzer analyzer = GetAnalyzer(context, xmlTypes, version);
+                            context.RegisterSymbolAction(analyzer.AnalyzeSymbol, SymbolKind.NamedType);
+                        }
                     }
                 });
         }
@@ -77,7 +82,7 @@ namespace Desktop.Analyzers
         private static DiagnosticDescriptor CreateDiagnosticDescriptor(LocalizableResourceString messageFormat, LocalizableResourceString description, string helpLink = null)
         {
             return new DiagnosticDescriptor(RuleId,
-                                            GetLocalizableResourceString(DesktopAnalyzersResources.InsecureDtdProcessingInApiDesign),
+                                            DiagnosticHelpers.GetLocalizableResourceString(nameof(DesktopAnalyzersResources.InsecureDtdProcessingInApiDesign)),
                                             messageFormat,
                                             DiagnosticCategory.Security,
                                             DiagnosticSeverity.Warning,
@@ -85,11 +90,6 @@ namespace Desktop.Analyzers
                                             description: description,
                                             helpLinkUri: helpLink,
                                             customTags: WellKnownDiagnosticTags.Telemetry);
-        }
-
-        private static LocalizableResourceString GetLocalizableResourceString(string resourceString)
-        {
-            return new LocalizableResourceString(nameof(resourceString), DesktopAnalyzersResources.ResourceManager, typeof(DesktopAnalyzersResources));
         }
 
         protected abstract Analyzer GetAnalyzer(CompilationStartAnalysisContext context, CompilationSecurityTypes types, Version targetFrameworkVersion);
@@ -142,10 +142,9 @@ namespace Desktop.Analyzers
 
                 IMethodSymbol methodSymbol = SyntaxNodeHelper.GetDeclaredSymbol(node, model) as IMethodSymbol;
 
-                bool hasContructor = false;
                 if (methodSymbol == null || 
                     methodSymbol.MethodKind != MethodKind.Constructor ||
-                    !this.xmlDocumentDerivedTypes.TryGetValue(methodSymbol.ContainingType, out hasContructor))
+                    !((methodSymbol.ContainingType != xmlTypes.XmlDocument) && methodSymbol.ContainingType.IsDerivedFrom(xmlTypes.XmlDocument, baseTypesOnly: true)))
                 {
                     return;
                 }
@@ -189,11 +188,10 @@ namespace Desktop.Analyzers
 
                 IMethodSymbol methodSymbol = SyntaxNodeHelper.GetDeclaredSymbol(node, model) as IMethodSymbol;
 
-                bool hasContructor = false;
                 if (methodSymbol == null ||
                     // skip constructors since we report on the absence of secure assignment in AnalyzeNodeForXmlDocumentDerivedTypeConstructorDecl
                     methodSymbol.MethodKind == MethodKind.Constructor ||
-                    !this.xmlDocumentDerivedTypes.TryGetValue(methodSymbol.ContainingType, out hasContructor))
+                    !((methodSymbol.ContainingType != xmlTypes.XmlDocument) && methodSymbol.ContainingType.IsDerivedFrom(xmlTypes.XmlDocument, baseTypesOnly: true)))
                 {
                     return;
                 }
@@ -230,10 +228,9 @@ namespace Desktop.Analyzers
 
                 IMethodSymbol methodSymbol = SyntaxNodeHelper.GetDeclaredSymbol(node, model) as IMethodSymbol;
 
-                bool hasContructor = false;
-                if (methodSymbol == null || 
+                if (methodSymbol == null ||
                     methodSymbol.MethodKind != MethodKind.Constructor ||
-                    !this.xmlTextReaderDerivedTypes.TryGetValue(methodSymbol.ContainingType, out hasContructor))
+                    !((methodSymbol.ContainingType != xmlTypes.XmlTextReader) && methodSymbol.ContainingType.IsDerivedFrom(xmlTypes.XmlTextReader, baseTypesOnly: true)))
                 {
                     return;
                 }
@@ -293,9 +290,8 @@ namespace Desktop.Analyzers
 
                 IMethodSymbol methodSymbol = SyntaxNodeHelper.GetDeclaredSymbol(node, model) as IMethodSymbol;
 
-                bool hasContructor = false;
                 if (methodSymbol == null ||
-                    !this.xmlTextReaderDerivedTypes.TryGetValue(methodSymbol.ContainingType, out hasContructor))
+                   !((methodSymbol.ContainingType != xmlTypes.XmlTextReader) && methodSymbol.ContainingType.IsDerivedFrom(xmlTypes.XmlTextReader, baseTypesOnly: true)))
                 {
                     return;
                 }
